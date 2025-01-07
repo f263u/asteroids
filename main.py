@@ -3,9 +3,10 @@
 # throughout this file
 import pygame
 from constants import *
-from player import *
-from asteroid import *
-from asteroidfield import *
+from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
+from shot import Shot
 
 def main():
     #Display on entry
@@ -22,9 +23,11 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
+    Shot.containters = (shots, updatable, drawable)
     
     #Initialize Objects
     player_1 = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
